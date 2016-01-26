@@ -23,7 +23,7 @@
     "express-method-override": "0.0.3",
     "express-session": "^1.10.2",
     "gulp": "^3.8.11",
-    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-compile-handlebars": "^0.6.0",
     "gulp-concat": "^2.6.0",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.3.0",
