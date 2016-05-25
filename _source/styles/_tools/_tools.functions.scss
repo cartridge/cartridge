@@ -1,31 +1,31 @@
 //Common Sass functions
 
 @function calculateRem($size) {
-  $remSize: $size / 16px;
-  @return #{$remSize}rem;
+	$remSize: $size / 16px;
+	@return #{$remSize}rem;
 }
- 
+
 @function remify($px) {
- 
-  @if $px == 0 {
-    @return 0;
-  }
- 
-  @if type-of(px) == "number" {
-    @return calculateRem($px);
-  } @else {
-    $rems: ();
- 
-    @each $value in $px {
-      @if $value == 0 {
-        $rems: append($rems, $value);
-      } @else {
-        $rems: append($rems, calculateRem($value));
-      }
-    }
- 
-    @return $rems;
-  }
+
+	@if $px == 0 {
+		@return 0;
+	}
+
+	@if type-of(px) == "number" {
+		@return calculateRem($px);
+	} @else {
+		$rems: ();
+
+		@each $value in $px {
+			@if $value == 0 {
+				$rems: append($rems, $value);
+			} @else {
+				$rems: append($rems, calculateRem($value));
+			}
+		}
+
+		@return $rems;
+	}
 }
 
 /* Column widths as the lowest expression of a fraction
@@ -35,19 +35,36 @@
 */
 
 @function gcd($a, $b) {
-  @if $b == 0 {
-    @return $a;
-  }
-  @return gcd($b, $a % $b);
+	@if $b == 0 {
+		@return $a;
+	}
+	@return gcd($b, $a % $b);
 }
 
 @mixin widths($cols, $modifier: "") {
-  @for $i from 1 through $cols - 1 {
-    $gcd: gcd($i, $cols);
-    $numerator: $i / $gcd;
-    $denominator: $cols / $gcd;
-    .col--#{$numerator}\/#{$denominator}#{$modifier} {
-      width: $i / $cols * 100%;
-    }
-  }
+	@for $i from 1 through $cols - 1 {
+		$gcd: gcd($i, $cols);
+		$numerator: $i / $gcd;
+		$denominator: $cols / $gcd;
+		.col--#{$numerator}\/#{$denominator}#{$modifier} {
+			width: $i / $cols * 100%;
+		}
+	}
+}
+
+/*
+* Get Color Funciton
+* This will look for an atom in the color palete and then search for the color variation
+*/
+
+@function getColor($atom, $color) {
+
+	$mapGet: map-get($Colors, $atom);
+
+	@if(map-has-key($mapGet, $color)) {
+		@return map-get($mapGet, $color);
+	} @else {
+		@warn 'Colour: #{$color} is not a valid colour';
+		@return red;
+	}
 }

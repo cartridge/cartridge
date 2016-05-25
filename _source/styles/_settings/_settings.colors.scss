@@ -1,3 +1,31 @@
 //Variables for colors
-$white: 						#fff;
-$black:							#000;
+
+/*
+* Get Color Funciton
+* This will search for the global colours within the $Colors sass map
+* Notes Has to be above $Colors otherwise $Colors returns the function as a string
+*/
+
+@function getPalette($color) {
+	@if (map-has-key($Palette, $color)) {
+			@return map-get($Palette, $color);
+	} @else {
+		@warn 'Colour: #{$color} is not a valid colour';
+		@return #f00;
+	}
+}
+
+
+// Colours Variables
+
+$Palette: (
+	White:           #fff,
+	Black:           #000
+);
+
+$Colors: (
+		Body: (
+			Generic-Body:               getPalette(Black),
+			Generic-Body-Variation:     getPalette(White)
+		)
+);
