@@ -23,15 +23,16 @@
 }
 
 // fonts
-@mixin font($name, $file, $weight: normal) {
+@mixin font($name, $file, $eot:false, $eotiefix:false, $woff:false, $ttf:false, $otf:false, $svg:false, $weight: normal) {
 
     @font-face {
         font-family: $name;
-        src: url($fontUrl + $file + '.eot');
-        src: url($fontUrl + $file + '.eot?#iefix') format('embedded-opentype'),
-            url($fontUrl + $file + '.woff') format('woff'),
-            url($fontUrl + $file + '.ttf') format('truetype'),
-            url($fontUrl + $file + '#' + $name) format('svg');
+        @if $eot == true { src: url($file + '.eot'); }
+        @if $eotiefix == true { src: url($file + '.eot?#iefix') format('embedded-opentype'); }
+        @if $woff == true { src: url($file + '.woff') format('woff'); }
+        @if $ttf == true { src: url($file + '.ttf') format('truetype'); }
+        @if $otf == true { src: url($file + '.otf') format("opentype"); }
+        @if $svg == true { src: url($file + '#' + $name) format('svg'); }
         font-weight: $weight;
         font-style: normal;
     }
