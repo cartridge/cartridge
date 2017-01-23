@@ -51,11 +51,11 @@ gulp.task('clean', function () {
 
 gulp.task('watch', tasks.watch);
 
-// Task for local dev
 if(!config.isProd) {
 	tasks.default.concat(['watch']);
 }
-// Task for team city
-gulp.task('build', function (cb) {
+
+gulp.task('build', function(cb) {
+	config.isProd = true;
 	return runSeq(['clean'], tasks.default, cb);
 });
