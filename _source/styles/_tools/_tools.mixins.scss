@@ -1,4 +1,4 @@
-//Common Sass mixins
+// Tools - Common Sass Mixins.
 
 /* Mixin to drop micro clearfix into a selector.
 *
@@ -13,7 +13,6 @@
 
 @mixin clearfix($important: false) {
 
-    // Determine whether or not to make declarations important.
     @if ($important == false) {
         $important: null;
     } @else {
@@ -25,7 +24,6 @@
         display: table $important;
         clear: both $important;
     }
-
 }
 
 

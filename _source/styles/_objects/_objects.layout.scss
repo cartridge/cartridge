@@ -1,10 +1,11 @@
-//Layout - styles for all layout and or grid system
+// Objects - Styles for all layout and or grid system.
 
 .wrapper {
 	max-width: $max;
 	margin: 0 auto;
 	padding: 0 remify(10px);
-	@include respond-to-min($small){
+
+	@include respond-to-min($small) {
 		padding: 0 remify(20px);
 	}
 }
@@ -13,10 +14,12 @@
 	@include clearfix;
 	margin-left: remify(-10px);
 }
+
 .grid__row {
 	margin-bottom: $row-divider;
 	@include clearfix;
 }
+
 .col {
 	box-sizing: border-box;
 	float: left;
@@ -24,7 +27,8 @@
 	padding-left: remify(10px);
 	width: 100%;
 	margin-bottom: 10px;
-	@include respond-to-min($med){
+
+	@include respond-to-min($med) {
 		margin-bottom: 0;
 	}
 }

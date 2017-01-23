@@ -1,21 +1,21 @@
-//Common Sass functions
+//Tools - Common Sass Functions.
 
 @function calculateRem($size) {
   $remSize: $size / 16px;
   @return #{$remSize}rem;
 }
- 
+
 @function remify($px) {
- 
+
   @if $px == 0 {
     @return 0;
   }
- 
+
   @if type-of(px) == "number" {
     @return calculateRem($px);
   } @else {
     $rems: ();
- 
+
     @each $value in $px {
       @if $value == 0 {
         $rems: append($rems, $value);
@@ -23,7 +23,7 @@
         $rems: append($rems, calculateRem($value));
       }
     }
- 
+
     @return $rems;
   }
 }

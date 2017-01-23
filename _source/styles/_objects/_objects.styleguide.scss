@@ -1,11 +1,11 @@
-//Styleguide layout and filler styles.
+// Objects - Styles for styleguide layout.
 
-$c-color-pallet-bg: 			lighten($black, 90%);
+$c-color-pallet-bg:  lighten($black, 90%);
 
 .styleguide__grid-item {
-	height: remify(50px);
-	background: $black;
+	background-color: $black;
 	width: 100%;
+	height: remify(50px);
 	vertical-align: middle;
 	text-align: center;
 	color: $white;
@@ -28,7 +28,7 @@ $c-color-pallet-bg: 			lighten($black, 90%);
 }
 
 .color-list {
-	background: $c-color-pallet-bg;
+	background-color: $c-color-pallet-bg;
 	padding-left: 1%;
 }
 
@@ -53,7 +53,7 @@ $c-color-pallet-bg: 			lighten($black, 90%);
 }
 
 .color-item__title {
-	background: $white;
+	background-color: $white;
 	border-radius: 0 0 remify(3px) remify(3px);
 	display: block;
 	padding: remify(10px) remify(5px);
