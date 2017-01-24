@@ -1,9 +1,8 @@
 {
 	"dirs": {
-		"build":  "build/_client",
 		"config": "_config",
-		"dest":   "public/_client",
-		"src":    "_source"
+		"dest": "public/_client",
+		"src": "_source"
 	},
 	"paths": {
 		"src": {
