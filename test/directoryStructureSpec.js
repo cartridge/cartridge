@@ -13,7 +13,7 @@ describe('As a dev', function() {
         var pathToTest;
 
         it('then _cartridge folder should exist', function() {
-            pathToTest = path.join(ROOT_DIR, '_config');
+            pathToTest = path.join(ROOT_DIR, '_cartridge');
             pathToTest.should.be.a.directory();
         })
 
