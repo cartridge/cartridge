@@ -49,6 +49,9 @@ gulp.task('clean', function () {
 	MAIN TASKS
 \* ============================================================ */
 
+// Task for local dev
+gulp.task('default', tasks.default.concat(['watch']));
+
 gulp.task('watch', tasks.watch);
 
 // Task for local dev
